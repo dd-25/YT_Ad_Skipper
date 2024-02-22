@@ -10,11 +10,13 @@ function clickButton() {
         }
 
         // Hide ad overlay
-        // const adPlayerOverlay = document.getElementsByClassName('ytp-ad-player-overlay');
-        // if (adPlayerOverlay[0] && adPlayerOverlay.length > 0) {
-        //     adPlayerOverlay[0].style.visibility = 'hidden';
-        // console.log("Overlay Hidden")
-        // }
+        const adPlayerOverlay = document.getElementsByClassName('ytp-ad-player-overlay');
+        if (adPlayerOverlay && adPlayerOverlay.length > 0) {
+            adPlayerOverlay.forEach(element => {
+                element.style.visibility = 'hidden';
+            });
+            console.log("Overlay Hidden");
+        }
     });
 
     observer.observe(document.body, { subtree: true, childList: true });
