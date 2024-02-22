@@ -71,6 +71,8 @@
 // observer.observe(document.body, { subtree: true, childList: true });
 
 // Function to handle mutations
+console.log("Extension Activated")
+
 function handleMutations(mutationsList) {
     mutationsList.forEach(mutation => {
         mutation.addedNodes.forEach(node => {
