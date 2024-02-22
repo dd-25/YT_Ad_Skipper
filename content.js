@@ -1,6 +1,6 @@
 console.log("Extension activated");
 
-function clickButton() {
+function SkipAd() {
     const observer = new MutationObserver((mutationsList, observer) => {
         const button = document.querySelector('.ytp-ad-skip-button-modern.ytp-button');
         if (button) {
@@ -15,12 +15,12 @@ function clickButton() {
             adPlayerOverlay.forEach(element => {
                 element.style.visibility = 'hidden';
             });
-            console.log("Overlay Hidden");
+            console.log("Overlay Hidden!");
         }
     });
 
     observer.observe(document.body, { subtree: true, childList: true });
 }
 
-// Call the clickButton function when the DOM content is loaded
-clickButton(); // Immediately call the function without waiting for DOMContentLoaded
+// Call the SkipAd function when the DOM content is loaded
+SkipAd(); // Immediately call the function without waiting for DOMContentLoaded
