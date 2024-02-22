@@ -71,20 +71,23 @@
 // observer.observe(document.body, { subtree: true, childList: true });
 
 // Function to handle mutations
+// Function to handle mutations
 console.log("Extension Activated")
 
 function handleMutations(mutationsList) {
     mutationsList.forEach(mutation => {
         mutation.addedNodes.forEach(node => {
-            if (node.classList.contains('video-ads') || 
-                node.classList.contains('ytp-ad-player-overlay') || 
-                node.classList.contains('ytp-ad-image-overlay')) {
-                node.style.visibility = 'hidden'; // Hide ad overlay
-                console.log("Overlay Hidden")
-            }
-            if (node.classList.contains('ytp-ad-skip-button')) {
-                node.click(); // Click skip button
-                console.log("Button Clicked")
+            if (node instanceof Element) { // Check if node is an element
+                if (node.classList.contains('video-ads') || 
+                    node.classList.contains('ytp-ad-player-overlay') || 
+                    node.classList.contains('ytp-ad-image-overlay')) {
+                    node.style.visibility = 'hidden'; // Hide ad overlay
+                    console.log("Overlay Hidden")
+                }
+                if (node.classList.contains('ytp-ad-skip-button')) {
+                    node.click(); // Click skip button
+                    console.log("Button Clicked")
+                }
             }
         });
     });
